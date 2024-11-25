@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <div className="container mx-auto">
-        <p className="text-center font-medium text-xl mt-4">
+        <p className="text-center text-lg mt-4">
           Projected Adult Population 2027
         </p>
       </div>
