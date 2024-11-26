@@ -471,4 +471,14 @@ export const sampleCountyCensusData: CountyCensusData[] = [
     totalVoters: "220,026",
     difference: "153,659",
   },
+  {
+    county: "TOTAL",
+    female: "17,263,413",
+    male: "16,723,850",
+    total: "33,987,263",
+    femaleVoters: "10,862,265",
+    maleVoters: "11,240,267",
+    totalVoters: "22,102,532",
+    difference: "11,884,731",
+  },
 ];

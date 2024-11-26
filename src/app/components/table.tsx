@@ -44,7 +44,7 @@ export function DataTable() {
   const [rowSelection, setRowSelection] = React.useState({});
   const [pagination, setPagination] = React.useState({
     pageIndex: 0,
-    pageSize: 23,
+    pageSize: 48,
   });
 
   const columns: ColumnDef<CountyCensusData>[] = [
@@ -233,10 +233,13 @@ export function DataTable() {
               return (
                 <TableRow key={row.id}>
                   {row.getVisibleCells().map((cell) => {
+                    const isTotal = cell.row.original.county === "TOTAL";
                     return (
                       <TableCell
                         key={cell.id}
-                        className="border-2 border-gray-200 py-2 border-dotted"
+                        className={`border-2 border-gray-200 py-2 border-dotted ${
+                          isTotal ? "font-bold" : ""
+                        }`}
                       >
                         {flexRender(
                           cell.column.columnDef.cell,
@@ -251,7 +254,8 @@ export function DataTable() {
           </TableBody>
         </Table>
       </div>
-      <div className="flex items-center justify-end space-x-2 py-4">
+      <div className="pt-8"></div>
+      {/* <div className="flex items-center justify-end space-x-2 py-4">
         <Button
           variant="outline"
           size="sm"
@@ -268,7 +272,7 @@ export function DataTable() {
         >
           Next
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 }
