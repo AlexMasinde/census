@@ -6,7 +6,7 @@ export default function Home() {
     <div>
       <div className="container mx-auto">
         <p className="text-center text-lg mt-4">
-          Projected Adult Population 2027
+          Projected Adult Population 2027 Based on 2019 Census
         </p>
       </div>
       <DataTable />

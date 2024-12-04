@@ -14,6 +14,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
+import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -62,30 +63,7 @@ export function DataTable() {
         );
       },
     },
-    {
-      accessorKey: "female",
-      header: "Female Population",
-      enableHiding: true,
-      cell: ({ row }) => {
-        return (
-          <div>
-            <p>{row.getValue("female")}</p>
-          </div>
-        );
-      },
-    },
-    {
-      accessorKey: "male",
-      header: "Male Population",
-      enableHiding: true,
-      cell: ({ row }) => {
-        return (
-          <div>
-            <p>{row.getValue("male")}</p>
-          </div>
-        );
-      },
-    },
+
     {
       accessorKey: "total",
       header: "Total Adult Population (2027)",
@@ -93,28 +71,6 @@ export function DataTable() {
         return (
           <div>
             <p>{row.getValue("total")}</p>
-          </div>
-        );
-      },
-    },
-    {
-      accessorKey: "femaleVoters",
-      header: "Female Voters",
-      cell: ({ row }) => {
-        return (
-          <div>
-            <p>{row.getValue("femaleVoters")}</p>
-          </div>
-        );
-      },
-    },
-    {
-      accessorKey: "maleVoters",
-      header: "Male Voters",
-      cell: ({ row }) => {
-        return (
-          <div>
-            <p>{row.getValue("maleVoters")}</p>
           </div>
         );
       },
@@ -140,6 +96,23 @@ export function DataTable() {
           </div>
         );
       },
+    },
+    {
+      accessorKey: "percentage",
+      header: ({ column }) => {
+        return (
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          >
+            Percentage Difference (%)
+            <ArrowUpDown />
+          </Button>
+        );
+      },
+      cell: ({ row }) => (
+        <div className="lowercase">{row.getValue("percentage")}</div>
+      ),
     },
   ];
 
